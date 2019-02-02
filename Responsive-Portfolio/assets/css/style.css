@@ -1,0 +1,210 @@
+body{
+    background: #cccccc;
+}
+
+h1 {
+color: #ffffff;
+background: #4aaaa5;
+font-family: 'Georgia', Times, Times New Roman, serif;
+height: 80px;
+width: 200px;
+text-align: center;
+font-size: 30px;
+padding: 10px;
+position: absolute;
+left: 452px;
+top: -20px;
+}
+
+#portbar {
+    height: 2px;
+    background: #cccccc;
+}
+
+#headerbar{
+    width: 100%;
+    height: 100px;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+}
+
+#Sam{
+     float: left;
+     padding: 10px;
+}
+
+#titlebar{
+    position: absolute;
+    right: 464px;
+    bottom: 20px;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    color: #777777;
+}
+
+
+h2{
+    color: #4aaaa5;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    position: relative;
+    left: 15px;
+}
+
+p {
+    color: #777777;
+    font-family: "'Arial', 'Helvetica Neue', Helvetica, sans-serif;";
+  font-size: 20px;
+  line-height: 28px;
+}
+
+footer {
+background: #666666;
+color: #ffffff;
+text-align: center;
+bottom: 0;
+height: 50px;
+font-size: 12px;
+position: fixed;
+width: 100%;
+border-top: 8px solid #4aaaa5;
+}
+
+a {
+    color: #777777;
+    text-decoration: none;
+}
+
+a:active {
+    font-weight: bold;
+  }
+
+.wrapper {
+    width: 960px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    margin-top: 115px;
+    background: #ffffff;
+    position: relative;
+  }
+
+#Jaina{
+background-image: url("../images/jaina.jpg");
+width: 256px;
+height: 256px;
+float: left;
+background-repeat: no-repeat;
+position: relative;
+margin: 20px;
+}
+
+#Barb{
+background-image: url("../images/barb.jpg");
+width: 256px;
+height: 256px;
+float: left;
+background-repeat: no-repeat;
+position: relative;
+margin: 20px;
+}
+
+#Deckard{
+background-image: url("../images/deckard.jpg");
+width: 256px;
+height: 256px;
+float: left;
+background-repeat: no-repeat;
+position: relative;
+margin: 20px;
+}
+
+#Tyrael{
+background-image: url("../images/tyrael.jpg");
+width: 256px;
+height: 256px;
+float: left;
+background-repeat: no-repeat;
+position: relative;
+margin: 20px;
+}
+
+#Uther{
+background-image: url("../images/uther.jpg");
+width: 256px;
+height: 256px;
+float: left;
+background-repeat: no-repeat;
+position: relative;
+margin: 20px;
+}
+
+.imgname{
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+    background: #4aaaa5;
+    width: 216px;
+    margin-bottom: 10px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+input[type=submit] {
+    width: 100px;
+    background-color: #4aaaa5;
+    color: #ffffff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+input[type=submit]:hover {
+    background-color: #777777;
+}
+
+label{
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    color: #777777;
+}
+  
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+@media screen and (max-width: 980px) {
+ .wrapper{width: 70%; height: 90%; margin-right: 390px; margin-bottom: 200px;}
+ h1 {left: 50px;}
+ #titlebar{right: 30px}
+ #headerbar{position: relative; margin-bottom: -80px; margin-top: 0;}
+}
+
+@media screen and (max-width: 768px) { 
+    h1{ left: 10px; }  
+    #headerbar{position: relative; width: 100%; margin-left: none; margin-bottom: -80px;}
+    #titlebar{right: 16px;}
+    .wrapper{width: 85%; margin-bottom: 100px;}
+}
+  
+@media screen and (max-width: 640px) { 
+    h1{width: 100%; left: 0; position: static; top: 0; text-align: center; padding: 10px; margin-top: -10px;} 
+    #titlebar{background: #ffffff; position: static; height: 30px; text-align: center; padding: 10px; margin-bottom: 15px; width: 100%; margin-top: -20px;}
+    .wrapper{padding: 40px; margin-top: 75px; width: 85%; margin-bottom: 300px;}
+    #headerbar{background: none; position: static; padding: 0; margin: 0;}
+    p{font-size: 16px;}
+}
