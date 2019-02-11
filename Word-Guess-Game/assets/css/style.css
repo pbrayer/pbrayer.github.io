@@ -1,0 +1,58 @@
+body{
+   font-family: 'Cinzel', serif;
+   color: #444444;
+   background-image: url("../images/lotrbg.jpg");
+}
+
+
+.jumbotron{
+	background-color:#b79c71;
+	color: #444444;
+	font-family: 'Cinzel', serif;
+	margin-bottom: 1%;
+	padding-top: .5%;
+	padding-bottom: 2%;
+}
+
+@media screen and (max-width: 767px){
+	img{
+		width: 50% !important;
+	}
+	.left{
+		padding-top: 20px;
+	}
+
+}
+
+h2{
+	font-family: 'Cinzel', serif;
+	color: #888888;
+}
+
+img{
+	border-radius: 6px;
+	width: 100%;
+}
+
+#currentWord #guessesLeft #lettersGuessed #wins #losses{
+	font-size: 24px;
+}
+
+.left{
+	background-color: #f3ead8;
+	border-radius: 6px;
+}
+
+.right{
+	padding-right: 0;
+}
+
+.row{
+	border-radius: 6px;
+}
+
+
+.row.overflow {
+    overflow: hidden; 
+}
+
