@@ -1,0 +1,123 @@
+body {
+    background-image: url("../images/cathedral.jpg");
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10pt;
+}
+
+#choose {
+    width: 175px;
+}
+
+#defender {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#defenderCol {
+    position: absolute;
+    right: 0;
+    top: 25px;
+}
+
+.container {
+    position: relative;
+}
+
+#victory {
+    width: 500px;
+    height: 450px;
+    display: block;
+    margin: 0 auto;
+}
+
+#button-3 {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+#restart {
+    color: #ffffff;
+    background: black;
+}
+
+#longer {
+    width: 400px;
+}
+
+h2 {
+    background: white;
+    width: 150px;
+    font-size: 14pt;
+}
+
+.jumbotron {
+    opacity: .8;
+    background-color: red;
+}
+
+#initialize {
+    font-weight: bold;
+}
+
+.avatar {
+    width: 200px;
+    height: 220px;
+    background-color: #ffffff;
+    border: 3px solid green;
+    text-align: center;
+}
+
+.avatarEnemy {
+    width: 200px;
+    height: 220px;
+    background-color: red;
+    border: 3px solid black;
+    text-align: center;
+    color: #ffffff;
+}
+
+.avatarDefend {
+    width: 200px;
+    height: 220px;
+    background-color: black;
+    border: 3px solid green;
+    text-align: center;
+    color: #ffffff;
+}
+
+
+.liu {
+    background-image: url("../images/liu.jpg");
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+
+.scorpion {
+   background-image: url("../images/scorpion.jpg");
+   background-repeat: no-repeat;
+   width: 150px;
+   height: 150px;
+    margin: auto;
+}
+
+.raiden {
+    background-image: url("../images/raiden.png");
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.jcage {
+    background-image: url("../images/jcage.jpg");
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
