@@ -1,18 +1,16 @@
 # TriviaGame
 
 What the project does
-User clicks "start game" and then proceeds through 8 GoT themed questions before viewing the result page with correct / incorrect answer count.
+Click on any of the Pokemon buttons to generate 10 still Gif images (pulled from Giphy). User may also enter a custom string / pokemon into the form and hit submit(or enter) to add a new button.
 
 Why the project is useful
 It's a great source of entertainment!
 
 How users can get started with the project
-Users will need to click start button, they also may want to research GoT a bit beforehand by reading the books / watching the show.
+Users will need to either hit a button or submit a custom string.
 
 Where users can get help with your project
 Message me over Slack!
 
 Who maintains and contributes to the project
 Sam Reimann
-
-Please remember to play with sound on for full immersion.
