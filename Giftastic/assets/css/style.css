@@ -1,0 +1,59 @@
+@font-face{ 
+	font-family: 'PokeFont';
+	src: url('pokemon_solid-webfont.eot');
+	src: url('pokemon_solid-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('pokemon_solid-webfont.woff') format('woff'),
+	     url('pokemon_solid-webfont.ttf') format('truetype'),
+	     url('pokemon_solid-webfont.svg#webfont') format('svg');
+}
+
+button{
+    margin: 5px;
+}
+
+body{
+    background-image: url("../images/pikachu.jpg");
+    background-repeat: repeat-y;
+    font-family: "PokeFont";
+}
+
+.clearfix{
+    overflow: auto;
+}
+
+.pokemons {
+    color: #fff !important;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: #60a3bc;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    }
+
+.pokemons:hover {
+        text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+        box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        transition: all 0.4s ease 0s;
+        }
+
+#submit {
+    color: #fff !important;
+            text-transform: uppercase;
+            background: #60a3bc;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            width: 125px;
+            letter-spacing: 3px;
+            }
+            
+#submit:hover {
+            border-radius: 50px;
+            border-color: #494949 !important;
+            transition: all 0.3s ease 0s;
+            }
