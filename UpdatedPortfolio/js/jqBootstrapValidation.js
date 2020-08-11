@@ -80,7 +80,6 @@
 
         return this.each(function(){
 
-          // Get references to everything we're interested in
           var $this = $(this),
             $controlGroup = $this.parents(".control-group").first(),
             $helpBlock = $controlGroup.find(".help-block").first(),
