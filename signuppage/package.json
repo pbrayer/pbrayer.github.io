@@ -1,5 +1,5 @@
 {
-  "homepage": "http://pbrayer.github.io/signuppage/",
+  "homepage": "https://pbrayer.github.io/signuppage",
   "name": "signuppage",
   "version": "0.1.0",
   "private": true,
@@ -13,7 +13,7 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "predploy": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
