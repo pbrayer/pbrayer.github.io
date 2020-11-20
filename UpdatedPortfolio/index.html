@@ -10,6 +10,12 @@
 
   <title>Samuel Reimann</title>
 
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,8 +27,10 @@
   <!-- Plugin CSS -->
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 
-  <!-- CSS minified -->
-  <link href="css/freelancer.min.css" rel="stylesheet">
+  <!-- CSS -->
+  <link href="css/freelancer.css" rel="stylesheet">
+
+
 
 </head>
 
@@ -54,11 +62,15 @@
 
   <!-- Header -->
   <header class="masthead bg-primary text-white text-center">
-    <div class="container">
+    <div class="container" id = "header">
       <!-- <img class="img-fluid mb-5 d-block mx-auto" src="img/me.png" alt=""> -->
       <h1 class="text-uppercase mb-0">Samuel Reimann</h1>
       <hr class="star-light">
       <h2 class="font-weight-light mb-0">Web Developer - Graphic Artist - User Experience Designer</h2>
+      <br><br>
+      <h5>Turn the lights: </h5>
+      <button type="button" class="btn btn-light btn-toggle" id = "day">ON <i class="fas fa-sun"></i></button>
+      <button type="button" class="btn btn-dark btn-toggle" id = "night">OFF <i class="fas fa-moon"></i></button>
     </div>
   </header>
 
@@ -274,12 +286,20 @@
             <img class="img-fluid mb-5" src="img/portfolio/pikachu.jpg" alt="giphy">
             <p class="mb-5">Giftastic is an app I created that integrates with Giphy's API.</p>
             <p class="mb-5">This app allows the user to pull selected GIFs from Giphy through the use of dynamic buttons.</p>
-            <a href = "https://pbrayer.github.io/Giftastic/" target = "_blank">View the Project</a>
-            <br> <a href = "https://github.com/pbrayer/Giftastic" target="_blank">View the code on Github</a>
+            <div class = "row">
+              <div class = "col-sm-6">
+            <a class="btn btn-secondary btn-lg rounded-pill" href="https://pbrayer.github.io/Giftastic/" target ="_blank">
+              See the Project</a>
+            </div>
+            <div class = "col-sm-6">
+              <a class="btn btn-secondary btn-lg rounded-pill" href="https://github.com/pbrayer/Giftastic" target ="_blank">
+                View on Github</a>
+            </div>
+            </div>
             <br><br>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+            <a class="btn btn-primary btn-xl portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -301,12 +321,20 @@
             <hr class="star-dark mb-5">
             <img class="img-fluid mb-5" src="img/portfolio/dragon.jpg" alt="GoT">
             <p class="mb-5">Here is a Trivia app with a Game of Thrones theme.</p>
-            <a href = "https://pbrayer.github.io/TriviaGame/" target = "_blank">View the Project</a>
-            <br> <a href = "https://github.com/pbrayer/TriviaGame" target="_blank">View the code on Github</a>
+            <div class = "row">
+              <div class = "col-sm-6">
+            <a class="btn btn-secondary btn-lg rounded-pill" href="https://pbrayer.github.io/TriviaGame/" target ="_blank">
+              See the Project</a>
+            </div>
+            <div class = "col-sm-6">
+              <a class="btn btn-secondary btn-lg rounded-pill" href="https://github.com/pbrayer/TriviaGame" target ="_blank">
+                View on Github</a>
+            </div>
+            </div>
             <br><br>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+            <a class="btn btn-primary btn-xl portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -326,12 +354,20 @@
             <hr class="star-dark mb-5">
             <img class="img-fluid mb-5" src="img/portfolio/volodymyr-hryshchenko-V5vqWC9gyEU-unsplash.jpg" alt="imageboard">
             <p class="mb-5">Here is an imageboard / forum site I built with React and Mongo that allows users to comment, post, and link images. Also has a voting system and login functionality. Try it out!</p>
-            <a href = "https://imageboardsite.herokuapp.com/" target = "_blank">View the Project</a>
-            <br> <a href = "https://github.com/pbrayer/forumsite" target="_blank">View the code on Github</a>
+            <div class = "row">
+              <div class = "col-sm-6">
+            <a class="btn btn-secondary btn-lg rounded-pill" href="https://imageboardsite.herokuapp.com/" target ="_blank">
+              See the Project</a>
+            </div>
+            <div class = "col-sm-6">
+              <a class="btn btn-secondary btn-lg rounded-pill" href="https://github.com/pbrayer/forumsite" target ="_blank">
+                View on Github</a>
+            </div>
+            </div>
             <br><br>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+            <a class="btn btn-primary btn-xl portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -351,13 +387,20 @@
             <hr class="star-dark mb-5">
             <img class="img-fluid mb-5" src="img/portfolio/seating.png" alt="foundtable">
             <p class="mb-5">My final project from the University of Minnesota's bootcamp. Nominated for Trilogy Education's Next Level Contest. A few others and I designed a site that allows restaurant reservation similar to how one would reserve a theater or airplane seat. It uses Google OAuth, login with an account and try it out!</p>
-            <a href = "https://foundtable.herokuapp.com" target = "_blank">View the Project</a>
-            <br>
-            <a href = "https://github.com/pbrayer/FoundTable" target="_blank">View the code on Github</a>
+            <div class = "row">
+              <div class = "col-sm-6">
+            <a class="btn btn-secondary btn-lg rounded-pill" href="https://foundtable.herokuapp.com" target ="_blank">
+              See the Project</a>
+            </div>
+            <div class = "col-sm-6">
+              <a class="btn btn-secondary btn-lg rounded-pill" href="https://github.com/pbrayer/FoundTable" target ="_blank">
+                View on Github</a>
+            </div>
+            </div>
             <br><br>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+            <a class="btn btn-primary btn-xl portfolio-modal-dismiss" href="#">
               <i class="fa fa-close"></i>
-              Close Project</a>
+              Close</a>
           </div>
         </div>
       </div>
@@ -375,15 +418,22 @@
               <div class="col-lg-8 mx-auto">
                 <h2 class="text-secondary text-uppercase mb-0">React Component - Signup Page</h2>
                 <hr class="star-dark mb-5">
-                <img class="img-fluid mb-5" src="img/portfolio/signup.png" alt="">
+                <img class="img-fluid mb-5" src="img/portfolio/signup.png" alt="signup">
                 <p class="mb-5">Here is a React Component I built that takes input for user registration.</p>
-                <a href = "https://pbrayer.github.io/signuppage/" target = "_blank">View the Project</a>
-                <br>
-                <a href = "https://github.com/pbrayer/signuppage/tree/master" target="_blank">View the code on Github</a>
+                <div class = "row">
+                  <div class = "col-sm-6">
+                <a class="btn btn-secondary btn-lg rounded-pill" href="https://pbrayer.github.io/signuppage/" target ="_blank">
+                  See the Project</a>
+                </div>
+                <div class = "col-sm-6">
+                  <a class="btn btn-secondary btn-lg rounded-pill" href="https://github.com/pbrayer/signuppage/tree/master" target ="_blank">
+                    View on Github</a>
+                </div>
+                </div>
                 <br><br>
-                <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                <a class="btn btn-primary btn-xl portfolio-modal-dismiss" href="#">
                   <i class="fa fa-close"></i>
-                  Close Project</a>
+                  Close</a>
               </div>
             </div>
           </div>
@@ -405,13 +455,20 @@
               <p class="mb-5">This is a mockup teacher site I created and am currently working on. Very topical while we have students utilizing online learning!
                 <br>It uses WordPress for CMS, React, and a framework called Frontity to combine the two.
                The production environment is hosted on Vercel.</p>
-              <a href = "https://scienceburks.vercel.app/" target = "_blank">View the Project</a>
-              <br>
-              <a href = "https://github.com/pbrayer/scienceburks" target="_blank">View the code on Github</a>
+               <div class = "row">
+                <div class = "col-sm-6">
+              <a class="btn btn-secondary btn-lg rounded-pill" href="https://scienceburks.vercel.app/" target ="_blank">
+                See the Project</a>
+              </div>
+              <div class = "col-sm-6">
+                <a class="btn btn-secondary btn-lg rounded-pill" href="https://github.com/pbrayer/scienceburks" target ="_blank">
+                  View on Github</a>
+              </div>
+              </div>
               <br><br>
-              <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <a class="btn btn-primary btn-xl portfolio-modal-dismiss" href="#">
                 <i class="fa fa-close"></i>
-                Close Project</a>
+                Close</a>
             </div>
           </div>
         </div>
@@ -419,18 +476,18 @@
     </div>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.js"></script>
 
   <!-- Contact Form JavaScript -->
   <script src="js/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
 
-  <script src="js/freelancer.min.js"></script>
+  <script src="js/freelancer.js"></script>
 
 </body>
 

@@ -2,6 +2,53 @@ body {
   font-family: 'Lato';
 }
 
+/* Dark Mode styles */
+body.dark-theme{
+  color: #eee;
+  background: #303030;
+}
+
+body.dark-theme .portfolio-modal-dialog {
+  background: #303030 !important;
+}
+
+body.dark-theme .btn-primary:hover,
+body.dark-theme .btn-primary:focus, 
+body.dark-theme .btn-primary:active {
+  border-color: #505050 !important;
+}
+
+body.dark-theme a {
+  color: #809fff;
+}
+
+body.dark-theme header,
+body.dark-theme #about,
+body.dark-theme .btn {
+  background: #505050 !important;
+}
+
+body.dark-theme nav,
+body.dark-theme footer {
+  background: #404154 !important;
+}
+
+body.dark-theme h2 {
+  color: #eee !important;
+}
+
+body.dark-theme hr {
+  border-color: #eee !important;
+}
+
+body.dark-theme .active {
+  background: #ff8a00 !important;
+}
+
+#day {
+  background: #eee !important;
+}
+
 h1,
 h2,
 h3,
@@ -31,7 +78,8 @@ hr.star-dark:after {
   top: -.8em;
   display: inline-block;
   padding: 0 0.25em;
-  content: '\f005';
+  /* content: '\f005'; */
+  /* getting rid of the star for now, not a huge fan */
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 2em;
@@ -72,8 +120,9 @@ section h2 {
 }
 
 .btn-xl {
-  padding: 1rem 1.75rem;
+  padding: 2rem;
   font-size: 1.25rem;
+  border-radius: 50%;
 }
 
 .btn-social {
@@ -359,12 +408,12 @@ a:focus, a:hover, a:active {
 
 .btn-primary {
   background-color: #18BC9C;
-  border-color: #18BC9C;
+  border-color: white;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   background-color: #128f76;
-  border-color: #128f76;
+  border-color: white;
 }
 
 .btn-secondary {
@@ -376,3 +425,25 @@ a:focus, a:hover, a:active {
   background-color: #1a252f;
   border-color: #1a252f;
 }
+
+
+/* hovereffects for portfolio pieces, copied from minified so they look a bit wonky, might change later */
+.hovereffect{width:100%;height:100%;float:left;overflow:hidden;position:relative;text-align:center;cursor:default}
+
+.hovereffect .overlay{width:100%;height:100%;position:absolute;overflow:hidden;top:0;left:0;opacity:0;background-color:rgba(0,0,0,.5);-webkit-transition:all .4s ease-in-out;transition:all .4s ease-in-out}
+
+.hovereffect img{padding: 10px; width: 400px; height: 300px; display:block;position:relative;-webkit-transition:all .4s linear;transition:all .4s linear}
+
+.hovereffect h2{text-transform:uppercase;color:#fff;text-align:center;position:relative;font-size:17px;background:rgba(0,0,0,.6);-webkit-transform:translatey(-100px);-ms-transform:translatey(-100px);transform:translatey(-100px);-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;padding:10px}
+
+.hovereffect a.info{text-decoration:none;display:inline-block;text-transform:uppercase;color:#fff;border:1px solid #fff;background-color:transparent;opacity:0;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;margin:50px 0 0;padding:7px 14px}
+
+.hovereffect a.info:hover{box-shadow:0 0 5px #fff}
+
+.hovereffect:hover img{-ms-transform:scale(1.2);-webkit-transform:scale(1.2);transform:scale(1.2)}
+
+.hovereffect:hover .overlay{opacity:1}
+
+.hovereffect:hover a.info,.hovereffect:hover h2{opacity:1;-ms-transform:translatey(0);-webkit-transform:translatey(0);transform:translatey(0)}
+
+.hovereffect:hover a.info{-webkit-transition-delay:.2s;transition-delay:.2s}

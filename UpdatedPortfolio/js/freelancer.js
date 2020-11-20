@@ -1,6 +1,26 @@
 (function($) {
   "use strict"; // Start of use strict
 
+
+//Hiding whichever theme button isn't there
+$("#day").hide();
+
+//Easy / cheap way to simulate buttons hiding and showing when option is selected
+$("#night").on("click", () => {
+  $("#night").hide();
+  $("#day").show();
+});
+
+$("#day").on("click", () => {
+  $("#day").hide();
+  $("#night").show();
+});
+
+//Adding ability to toggle dark / light mode theme between buttons with this class
+document.querySelectorAll(".btn-toggle").forEach(link => link.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');  
+}));
+
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
