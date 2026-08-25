@@ -72,3 +72,53 @@ $('customBidInput').onkeydown=(e)=>{if(e.key==='Enter')userBid(null,$('customBid
 $('passBtn').onclick=()=>{if(draftPaused)return;userPassed=true;updateBidButtons();toast('You have stopped bidding on this player.');}; $('speedSelect').onchange=()=>{ if(draftStarted) toast('Draft speed changes apply immediately to upcoming bot actions.'); };
 loadStoredData(); teams=createTeams(); renderAll();
 setAuctionEmpty(players.length ? 'Ready to draft' : 'Import player values to begin', players.length ? 'Press Start Draft when your personas are set.' : 'CSV: Name, Position, Team, LeagueValue, ESPNValue (single Value also supported).');
+
+// D/ST realism override: almost every defense is strictly a $1 NPC purchase.
+// Only a top-three defense can ever draw a $2 NPC bid, and each fresh draft has
+// only a 12% chance of enabling one designated NPC to make that bid at all.
+function getDefensePremiumState() {
+  let state = window.__fantasyAuctionDefensePremiumState;
+  if (!state || state.teamsRef !== teams) {
+    const npcs = teams.filter(t => !t.user);
+    const enabled = Math.random() < .12;
+    const bidder = enabled && npcs.length ? npcs[Math.floor(Math.random() * npcs.length)] : null;
+    state = { teamsRef: teams, enabled, bidderName: bidder?.name || null, used: false };
+    window.__fantasyAuctionDefensePremiumState = state;
+  }
+  return state;
+}
+
+function defenseRank(player) {
+  if (!player || player.position !== 'DST') return 999;
+  const defensePool = players.filter(p => p.position === 'DST');
+  const ranked = [...defensePool].sort((a,b) => {
+    const roomDiff = roomReferenceValue(b) - roomReferenceValue(a);
+    if (roomDiff) return roomDiff;
+    const leagueDiff = (finiteSourceValue(b.leagueValue) ?? 0) - (finiteSourceValue(a.leagueValue) ?? 0);
+    if (leagueDiff) return leagueDiff;
+    const espnDiff = (finiteSourceValue(b.espnValue) ?? 0) - (finiteSourceValue(a.espnValue) ?? 0);
+    if (espnDiff) return espnDiff;
+    return defensePool.indexOf(a) - defensePool.indexOf(b);
+  });
+  const index = ranked.findIndex(p => p.id === player.id);
+  return index >= 0 ? index + 1 : 999;
+}
+
+const npcCeilingBeforeDefenseRealism = npcCeiling;
+npcCeiling = function(team, player) {
+  if (player?.position !== 'DST') return npcCeilingBeforeDefenseRealism(team, player);
+  const state = getDefensePremiumState();
+  const topThree = defenseRank(player) <= 3;
+  const canBidTwo = topThree && state.enabled && !state.used && team?.name === state.bidderName;
+  return Math.max(1, Math.min(canBidTwo ? 2 : 1, maxLegalBid(team)));
+};
+
+const placeBidBeforeDefenseRealism = placeBid;
+placeBid = function(team, amount) {
+  const isDefense = activeAuction?.player?.position === 'DST';
+  const placed = placeBidBeforeDefenseRealism(team, amount);
+  if (placed && isDefense && !team.user && Number(amount) >= 2) {
+    getDefensePremiumState().used = true;
+  }
+  return placed;
+};
