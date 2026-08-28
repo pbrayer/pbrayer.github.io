@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salary Cap Mock Draft Simulator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">SC</div>
+        <div>
+          <div class="brand-title">Salary Cap Mock Draft</div>
+          <div class="brand-subtitle">10 teams · $200 budget · 18 roster spots</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="setupBtn" class="btn secondary">League Setup</button>
+        <button id="importBtn" class="btn secondary">Import CSV</button>
+        <button id="resetBtn" class="btn danger">Reset Draft</button>
+      </div>
+    </header>
+
+    <section id="teamStrip" class="team-strip"></section>
+
+    <main class="draft-layout">
+      <aside class="left-panel panel">
+        <div class="panel-header roster-panel-header">
+          <div class="roster-picker">
+            <label for="rosterTeamSelect">Roster</label>
+            <select id="rosterTeamSelect" aria-label="Select roster to view"></select>
+          </div>
+          <span id="rosterBudgetBadge" class="badge">$200</span>
+        </div>
+        <div id="myRoster" class="roster-list"></div>
+      </aside>
+
+      <section class="center-column">
+        <section class="auction-stage panel">
+          <div class="stage-topline">
+            <div>
+              <div class="eyebrow">CURRENT NOMINATION</div>
+              <div id="nominationTurn" class="nomination-turn">Waiting to start</div>
+            </div>
+            <div class="timer-wrap">
+              <div id="timerLabel" class="timer-label">CLOCK</div>
+              <div id="timer" class="timer">--</div>
+            </div>
+          </div>
+
+          <div id="auctionCard" class="auction-card empty">
+            <div id="auctionEmpty" class="empty-state">
+              <h1>Import dual-source player values to begin</h1>
+              <p>CSV: Name, Position, Team, LeagueValue, ESPNValue. A single Value column is also supported.</p>
+              <button id="emptyImportBtn" class="btn primary">Import Values CSV</button>
+            </div>
+            <div id="auctionActive" class="auction-active hidden">
+              <div class="player-main">
+                <div id="activePos" class="pos-chip">RB</div>
+                <div>
+                  <div id="activeName" class="active-name">Player Name</div>
+                  <div id="activeMeta" class="active-meta">TEAM · Value $0</div>
+                </div>
+              </div>
+              <div class="bid-center">
+                <div class="bid-label">CURRENT BID</div>
+                <div id="currentBid" class="current-bid">$1</div>
+                <div id="currentLeader" class="current-leader">No bids</div>
+              </div>
+              <div id="userBidControls" class="bid-controls">
+                <button id="bidOneBtn" class="btn bid">+ $1</button>
+                <button id="bidFiveBtn" class="btn bid">+ $5</button>
+                <div class="custom-bid-row">
+                  <input id="customBidInput" type="number" min="1" step="1" placeholder="Custom" />
+                  <button id="customBidBtn" class="btn bid">Bid</button>
+                </div>
+                <button id="passBtn" class="btn secondary full">Pass / Stop Bidding</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="stage-actions">
+            <div class="draft-action-buttons">
+              <button id="startBtn" class="btn primary">Start Draft</button>
+              <button id="pauseBtn" class="btn secondary" disabled>Pause Draft</button>
+            </div>
+            <div class="speed-control">
+              <label for="speedSelect">Draft speed</label>
+              <select id="speedSelect">
+                <option value="realtime">ESPN-like</option>
+                <option value="fast" selected>Fast practice</option>
+                <option value="instant">Instant bots</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="player-pool panel">
+          <div class="pool-toolbar">
+            <div>
+              <h2>Players</h2>
+              <div id="playerCount" class="muted">0 available</div>
+            </div>
+            <input id="searchInput" class="search-input" type="text" placeholder="Search players..." />
+            <select id="positionFilter">
+              <option value="ALL">All positions</option>
+              <option value="QB">QB</option>
+              <option value="RB">RB</option>
+              <option value="WR">WR</option>
+              <option value="TE">TE</option>
+              <option value="K">K</option>
+              <option value="DST">D/ST</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Player</th>
+                  <th>Pos</th>
+                  <th>Team</th>
+                  <th>ESPN</th>
+                  <th>League</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="playerTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <aside class="right-panel panel">
+        <div class="panel-header">
+          <h2>Draft Log</h2>
+          <span class="badge neutral">Live</span>
+        </div>
+        <div id="draftLog" class="draft-log"></div>
+      </aside>
+    </main>
+  </div>
+
+  <input id="fileInput" type="file" accept=".csv,text/csv" hidden />
+
+  <div id="setupModal" class="modal hidden">
+    <div class="modal-card setup-card">
+      <div class="modal-header">
+        <div>
+          <h2>League Setup</h2>
+          <p>Historical is the default three-year behavior profile. Swap any NPC to test different rooms.</p>
+        </div>
+        <button id="closeSetupBtn" class="icon-btn">×</button>
+      </div>
+      <div class="setup-grid-header">
+        <span>Manager</span><span>Persona</span><span>Historical tendency</span>
+      </div>
+      <div id="personaSetup" class="persona-setup"></div>
+      <div class="setup-footer">
+        <div class="note">Player data and persona selections are saved locally. Draft results are not, so reloading gives you a fresh mock with the same setup.</div>
+        <button id="saveSetupBtn" class="btn primary">Save Setup</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="nominateModal" class="modal hidden">
+    <div class="modal-card nominate-card">
+      <div class="modal-header">
+        <div>
+          <h2>Your Nomination</h2>
+          <p>Choose an available player to put up for auction.</p>
+        </div>
+        <div class="modal-header-actions">
+          <button id="nominatePauseBtn" class="btn secondary">Pause Draft</button>
+          <button id="closeNominateBtn" class="icon-btn">×</button>
+        </div>
+      </div>
+      <input id="nominateSearch" class="search-input full" type="text" placeholder="Search players..." />
+      <div id="nominateList" class="nominate-list"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app-1.js"></script>
+  <script src="app-2.js"></script>
+  <script src="app-3.js"></script>
+  <script src="app-4.js"></script>
+  <script src="app-5.js"></script>
+  <script src="app-6.js"></script>
+</body>
+</html>
